@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var characterStatusOU: UILabel!
     @IBOutlet weak var aboutCharacterOU: UILabel!
     
+    @IBOutlet weak var characterBirthPlaceOU: UILabel!
     var charaterId: Int?
     private var character: characterResult = characterResult.init(
         id: 0,
@@ -106,6 +107,7 @@ extension ProfileViewController {
             self.characterNameOU.text = self.character.name
             self.characterStatusOU.text = self.character.status
             self.aboutCharacterOU.text = aboutCharacter
+//            self.characterBirthPlaceOU.text = self.character.origin.name
         }
     }
 }

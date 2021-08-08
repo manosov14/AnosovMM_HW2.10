@@ -47,7 +47,9 @@ class CharacterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profileCharacter" {
         guard let profileVC = segue.destination as? ProfileViewController else { return }
+
             profileVC.charaterId = sender as? Int ?? 10
+            profileVC.fetchCurrentCharacterData()
         }
     }
     
