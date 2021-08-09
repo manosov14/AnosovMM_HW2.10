@@ -9,45 +9,33 @@ import UIKit
 
 enum UserActions: String, CaseIterable {
     case characters = "Characters"
-    case episodes = "Episodes"
 }
 
 class MainViewController: UICollectionViewController {
-    // MARK: - public properties
+    // MARK: - Public properties
+    
     let userActions = UserActions.allCases
     
+    // MARK: - LifeCycle
     
-    // MARK: - Navigations
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCharacters" {
-            guard let characterVC = segue.destination as? CharacterViewController else {return}
-            characterVC.fetchCharacters()
-        }
-    }
-    
-    // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         userActions.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! MainMenuCell
-        //        cell.backgroundColor = .lightGray
-        cell.categoryLabelOU.text = userActions[indexPath.item].rawValue
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! MainMenuCell
+        cell.categoryLabelOU.text = userActions[indexPath.item].rawValue
         return cell
     }
     
@@ -57,11 +45,20 @@ class MainViewController: UICollectionViewController {
         switch userAction {
         case .characters:
             performSegue(withIdentifier: "showCharacters", sender: nil)
-        case .episodes:
-            performSegue(withIdentifier: "showEpisodes", sender: nil)
+        }
+    }
+    
+    // MARK: - Navigations
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCharacters" {
+            guard let characterVC = segue.destination as? CharacterViewController else {return}
+            characterVC.fetchCharacters()
         }
     }
 }
+
+//MARK: - Extensions
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

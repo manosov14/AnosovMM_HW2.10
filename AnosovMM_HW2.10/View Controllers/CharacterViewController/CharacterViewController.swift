@@ -9,13 +9,15 @@ import UIKit
 
 class CharacterViewController: UITableViewController {
 
+    //MARK: Private Properties
+    
     private var characters: Welcome = Welcome.init(info: nil, results: nil)
     
+    //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchCharacters()
-//        tableView.estimatedRowHeight = 150
     }
     
     // MARK: - Table view data source
@@ -44,27 +46,26 @@ class CharacterViewController: UITableViewController {
         performSegue(withIdentifier: "profileCharacter", sender: selectedRowIndex)
     }
     
+    //MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profileCharacter" {
-        guard let profileVC = segue.destination as? ProfileViewController else { return }
-
+            guard let profileVC = segue.destination as? ProfileViewController else { return }
             profileVC.charaterId = sender as? Int ?? 10
             profileVC.fetchCurrentCharacterData()
         }
     }
-    
 }
 
-// MARK: - extensions
+// MARK: - Network
+
 extension CharacterViewController {
     
     func fetchCharacters() {
         guard let url = URL(string: "https://rickandmortyapi.com/api/character") else { return }
         
-        
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let response = response { print(response)}
-            
             guard let data = data else {
                 print(error?.localizedDescription ?? "No description message")
                 print(data ?? "no data")
@@ -72,17 +73,13 @@ extension CharacterViewController {
             }
             
             let decoder = JSONDecoder()
-            
             do {
                 self.characters = try decoder.decode(Welcome.self, from: data)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    print(self.characters)
                 }
-                self.successAlert()
-                print(self.characters)
-                
             } catch let error {
-                self.errorAlert()
                 print(error)
             }
         }.resume()

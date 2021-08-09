@@ -10,5 +10,4 @@ import UIKit
 class MainMenuCell: UICollectionViewCell {
     
     @IBOutlet weak var categoryLabelOU: UILabel!
-
 }
