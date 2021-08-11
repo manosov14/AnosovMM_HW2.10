@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87B29A1726C47793000D9A2F /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B29A1626C47793000D9A2F /* EpisodesViewController.swift */; };
 		87BB368926BE61BB007A800A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB368826BE61BB007A800A /* MainViewController.swift */; };
 		87BB368B26BE61F9007A800A /* MainMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB368A26BE61F9007A800A /* MainMenuCell.swift */; };
 		87BB368D26BE79DB007A800A /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB368C26BE79DB007A800A /* CharacterViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87B29A1626C47793000D9A2F /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		87BB368826BE61BB007A800A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		87BB368A26BE61F9007A800A /* MainMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCell.swift; sourceTree = "<group>"; };
 		87BB368C26BE79DB007A800A /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				87DAF82826C0614C0040EC6E /* MainViewController */,
 				87DAF82726C061140040EC6E /* CharacterViewController */,
 				87DAF82526BFAF090040EC6E /* ProfileViewController.swift */,
+				87B29A1626C47793000D9A2F /* EpisodesViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B29A1726C47793000D9A2F /* EpisodesViewController.swift in Sources */,
 				87DAF82D26C1CCBC0040EC6E /* NetworkManager.swift in Sources */,
 				87DFC35926BD06FA00F51F1B /* AppDelegate.swift in Sources */,
 				87BB368D26BE79DB007A800A /* CharacterViewController.swift in Sources */,

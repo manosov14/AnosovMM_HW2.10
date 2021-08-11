@@ -24,20 +24,22 @@ struct Info: Decodable {
 struct Result: Decodable {
     let id: Int
     let name: String
-    let status: String
-    let species: String
-    let type: String
-    let gender: String
+    let status: String?
+    let species: String?
+    let type: String?
+    let gender: String?
     let origin, location: Location
     let image: String
+    let air_date: String?
     let episode: [String]
+    let characters: [String]?
     let url: String
     let created: String
     
     var discription: String {
             """
-            Status: \(status)
-            Gender: \(gender)
+            Status: \(status ?? "Unknown")
+            Gender: \(gender ?? "Unknown")
             Origin: \(origin.name)
             """
     }

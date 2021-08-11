@@ -9,6 +9,7 @@ import UIKit
 
 enum UserActions: String, CaseIterable {
     case characters = "Characters"
+    case episodes = "Episodes"
 }
 
 class MainViewController: UICollectionViewController {
@@ -35,6 +36,8 @@ class MainViewController: UICollectionViewController {
         switch userAction {
         case .characters:
             performSegue(withIdentifier: "showCharacters", sender: nil)
+        case .episodes:
+            performSegue(withIdentifier: "showEpisodes", sender: nil)
         }
     }
     
@@ -44,7 +47,12 @@ class MainViewController: UICollectionViewController {
         if segue.identifier == "showCharacters" {
             guard let characterVC = segue.destination as? CharacterViewController else {return}
             characterVC.fetchAllCharacters(from: URLS.rickAndMortyApi.rawValue)
+        } else if segue.identifier == "showEpisodes" {
+            guard let episodeVC = segue.destination as? EpisodesViewController else {return}
+            episodeVC.fetchAllEpisodes(for: URLS.rickAndMortyApi.rawValue)
         }
+        
+        
     }
 }
 

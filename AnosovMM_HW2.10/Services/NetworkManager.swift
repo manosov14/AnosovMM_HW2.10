@@ -61,6 +61,10 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    func fetchAllEpisodes(for url: String?, with compition: @escaping (Result) -> Void) {
+        
+    }
 }
 
 class ImageManager {
