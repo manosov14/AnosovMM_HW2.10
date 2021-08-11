@@ -16,17 +16,7 @@ class MainViewController: UICollectionViewController {
     
     let userActions = UserActions.allCases
     
-    // MARK: - LifeCycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     // MARK: - UICollectionViewDataSource
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         userActions.count
@@ -53,7 +43,7 @@ class MainViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCharacters" {
             guard let characterVC = segue.destination as? CharacterViewController else {return}
-            characterVC.fetchCharacters()
+            characterVC.fetchAllCharacters(from: URLS.rickAndMortyApi.rawValue)
         }
     }
 }

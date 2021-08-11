@@ -14,12 +14,12 @@ class CharacterCell: UITableViewCell {
     @IBOutlet weak var charcterSpeciesOU: UILabel!
     @IBOutlet weak var characterGenderOU: UILabel!
     
-    func configure(with character: Result) {
-        characterNameOU.text = character.name
-        charcterSpeciesOU.text = character.species?.rawValue
-        characterGenderOU.text = character.gender?.rawValue
+    func configure(with character: Result?) {
+        characterNameOU.text = character?.name
+        charcterSpeciesOU.text = character?.species
+        characterGenderOU.text = character?.gender
         
-        guard let url = URL(string: character.image ?? "") else { return }
+        guard let url = URL(string: character?.image ?? "") else { return }
         guard let imageData = try? Data(contentsOf: url) else { return }
         
         DispatchQueue.main.async {

@@ -12,6 +12,7 @@
 		87BB368D26BE79DB007A800A /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB368C26BE79DB007A800A /* CharacterViewController.swift */; };
 		87BB369026BEC03F007A800A /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BB368F26BEC03F007A800A /* CharacterCell.swift */; };
 		87DAF82626BFAF090040EC6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF82526BFAF090040EC6E /* ProfileViewController.swift */; };
+		87DAF82D26C1CCBC0040EC6E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DAF82C26C1CCBC0040EC6E /* NetworkManager.swift */; };
 		87DFC35926BD06FA00F51F1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFC35826BD06FA00F51F1B /* AppDelegate.swift */; };
 		87DFC35B26BD06FA00F51F1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFC35A26BD06FA00F51F1B /* SceneDelegate.swift */; };
 		87DFC36026BD06FA00F51F1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DFC35E26BD06FA00F51F1B /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		87BB368C26BE79DB007A800A /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		87BB368F26BEC03F007A800A /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		87DAF82526BFAF090040EC6E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		87DAF82C26C1CCBC0040EC6E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		87DFC35526BD06F900F51F1B /* AnosovMM_HW2.10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnosovMM_HW2.10.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DFC35826BD06FA00F51F1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DFC35A26BD06FA00F51F1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		87DAF82B26C1CC790040EC6E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				87DAF82C26C1CCBC0040EC6E /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		87DAF82E26C276100040EC6E /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Support files";
+			sourceTree = "<group>";
+		};
 		87DFC34C26BD06F900F51F1B = {
 			isa = PBXGroup;
 			children = (
@@ -112,9 +129,11 @@
 		87DFC35726BD06F900F51F1B /* AnosovMM_HW2.10 */ = {
 			isa = PBXGroup;
 			children = (
+				87DAF82E26C276100040EC6E /* Support files */,
 				87DFC36C26BD882000F51F1B /* Models */,
 				87BB369126BEC648007A800A /* Storyboards */,
 				87BB368E26BE79ED007A800A /* View Controllers */,
+				87DAF82B26C1CC790040EC6E /* Services */,
 				87DFC35826BD06FA00F51F1B /* AppDelegate.swift */,
 				87DFC35A26BD06FA00F51F1B /* SceneDelegate.swift */,
 				87DAF82926C0F9810040EC6E /* Resources */,
@@ -200,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87DAF82D26C1CCBC0040EC6E /* NetworkManager.swift in Sources */,
 				87DFC35926BD06FA00F51F1B /* AppDelegate.swift in Sources */,
 				87BB368D26BE79DB007A800A /* CharacterViewController.swift in Sources */,
 				87BB369026BEC03F007A800A /* CharacterCell.swift in Sources */,

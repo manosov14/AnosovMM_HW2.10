@@ -9,8 +9,8 @@
 
 // MARK: - Welcome
 struct Welcome: Decodable {
-    let info: Info?
-    let results: [Result]?
+    let info: Info
+    let results: [Result]
 }
 
 // MARK: - Info
@@ -22,50 +22,41 @@ struct Info: Decodable {
 
 // MARK: - Result
 struct Result: Decodable {
-    let id: Int?
-    let name: String?
-    let status: Status?
-    let species: Species?
-    let type: String?
-    let gender: Gender?
-    let origin, location: Location?
-    let image: String?
-    let episode: [String]?
-    let url: String?
-    let created: String?
-}
-
-// MARK: - Welcome
-struct characterResult: Decodable {
     let id: Int
-    let name, status, species, type: String
+    let name: String
+    let status: String
+    let species: String
+    let type: String
     let gender: String
     let origin, location: Location
     let image: String
     let episode: [String]
     let url: String
     let created: String
-}
-
-enum Gender: String, Decodable {
-    case female = "Female"
-    case male = "Male"
-    case unknown = "unknown"
+    
+    var discription: String {
+            """
+            Status: \(status)
+            Gender: \(gender)
+            Origin: \(origin.name)
+            """
+    }
 }
 
 // MARK: - Location
 struct Location: Decodable {
-    let name: String?
-    let url: String?
+    let name: String
+    let url: String
 }
 
-enum Species: String, Decodable {
-    case alien = "Alien"
-    case human = "Human"
-}
-
+// MARK: - Status
 enum Status: String, Codable {
     case alive = "Alive"
     case dead = "Dead"
     case unknown = "unknown"
+}
+
+// MARK: - URLS
+enum URLS: String {
+    case rickAndMortyApi = "https://rickandmortyapi.com/api/character"
 }
