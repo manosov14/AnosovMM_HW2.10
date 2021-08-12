@@ -5,6 +5,7 @@
 //  Created by Михаил on 09.08.2021.
 //
 import Foundation
+import Alamofire
 
 class NetworkManager {
     
@@ -62,9 +63,25 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchAllEpisodes(for url: String?, with compition: @escaping (Result) -> Void) {
-        
-    }
+//    func fetchAllEpisodes(for url: String?, with compition: @escaping (Result) -> Void) {
+//        AF.request(URLS.rickAndMortyApi.rawValue)
+//            .validate()
+//            .responseJSON {
+//            
+//            dataResponse in
+//                switch dataResponse.result  {
+//        
+//                case .success(let value):
+//                    print(value)
+//                    
+//                case .failure(let error):
+//                    print(error)
+//                }
+//                
+//                
+//
+//        }
+//    }
 }
 
 class ImageManager {

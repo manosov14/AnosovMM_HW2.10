@@ -20,9 +20,6 @@ class CharacterViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         characters?.results.count ?? 0

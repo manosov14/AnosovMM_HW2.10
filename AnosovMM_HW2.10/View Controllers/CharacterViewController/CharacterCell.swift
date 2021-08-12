@@ -8,13 +8,15 @@
 import UIKit
 
 class CharacterCell: UITableViewCell {
-
+    
     @IBOutlet weak var characterImageOU: UIImageView!
     @IBOutlet weak var characterNameOU: UILabel!
     @IBOutlet weak var charcterSpeciesOU: UILabel!
     @IBOutlet weak var characterGenderOU: UILabel!
     
     func configure(with character: Result?) {
+       
+        
         characterNameOU.text = character?.name
         charcterSpeciesOU.text = character?.species
         characterGenderOU.text = character?.gender
@@ -26,10 +28,5 @@ class CharacterCell: UITableViewCell {
             self.characterImageOU.image = UIImage(data: imageData)
             self.characterImageOU.layer.cornerRadius = self.characterImageOU.frame.width/2
         }
-    }
-
-    
-
-    
-    
+    }  
 }
