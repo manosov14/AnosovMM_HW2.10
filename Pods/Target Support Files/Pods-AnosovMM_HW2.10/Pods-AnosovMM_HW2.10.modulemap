@@ -1,0 +1,6 @@
+framework module Pods_AnosovMM_HW2_10 {
+  umbrella header "Pods-AnosovMM_HW2.10-umbrella.h"
+
+  export *
+  module * { export * }
+}
