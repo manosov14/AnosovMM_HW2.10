@@ -4,7 +4,6 @@
 //
 //  Created by Михаил on 09.08.2021.
 //
-import Foundation
 import Alamofire
 
 class NetworkManager {
@@ -41,7 +40,7 @@ class NetworkManager {
         guard let url = URL(string: "\(URLS.rickAndMortyApi.rawValue)/\(index ?? 0)") else {
             return
         }
-                      
+        
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let response = response { print(response)}
             guard let data = data else {
@@ -63,25 +62,24 @@ class NetworkManager {
         }.resume()
     }
     
-//    func fetchAllEpisodes(for url: String?, with compition: @escaping (Result) -> Void) {
-//        AF.request(URLS.rickAndMortyApi.rawValue)
-//            .validate()
-//            .responseJSON {
-//            
-//            dataResponse in
-//                switch dataResponse.result  {
-//        
-//                case .success(let value):
-//                    print(value)
-//                    
-//                case .failure(let error):
-//                    print(error)
-//                }
-//                
-//                
-//
-//        }
-//    }
+    func fetchAllEpisodes(completion: @escaping ([Result]) -> Void) {
+        
+       let url = "\(URLS.baseUrl.rawValue)\(endpoints.episodes.rawValue)"
+        
+        AF.request(url, method: .get)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result  {
+                
+                case .success(let value):
+                    guard let episodes = Result.getEpisodes(from: value) else { return }
+                    print(episodes)
+                    completion(episodes)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
 }
 
 class ImageManager {
@@ -95,3 +93,4 @@ class ImageManager {
         return try? Data(contentsOf: ImageUrl)
     }
 }
+

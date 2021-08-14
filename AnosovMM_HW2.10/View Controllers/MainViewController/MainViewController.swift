@@ -47,12 +47,7 @@ class MainViewController: UICollectionViewController {
         if segue.identifier == "showCharacters" {
             guard let characterVC = segue.destination as? CharacterViewController else {return}
             characterVC.fetchAllCharacters(from: URLS.rickAndMortyApi.rawValue)
-        } else if segue.identifier == "showEpisodes" {
-            guard let episodeVC = segue.destination as? EpisodesViewController else {return}
-            episodeVC.fetchAllEpisodes(for: URLS.rickAndMortyApi.rawValue)
         }
-        
-        
     }
 }
 

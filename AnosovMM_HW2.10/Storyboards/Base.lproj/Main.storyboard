@@ -146,7 +146,7 @@
         <!--Episodes-->
         <scene sceneID="TJ1-uI-rh2">
             <objects>
-                <tableViewController id="ctg-0y-x1b" sceneMemberID="viewController">
+                <tableViewController id="ctg-0y-x1b" customClass="EpisodesViewController" customModule="AnosovMM_HW2_10" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="99t-s9-61D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,10 +167,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Episodes" id="dam-lm-cNG"/>
+                    <connections>
+                        <segue destination="pjL-TD-ggG" kind="show" identifier="showCharactersFromEpisode" id="73i-Zb-WPB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cge-Rs-Izv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="903"/>
+            <point key="canvasLocation" x="-534" y="946"/>
         </scene>
         <!--Profile-->
         <scene sceneID="WN2-zI-beP">
@@ -251,6 +254,9 @@
             <point key="canvasLocation" x="-1464" y="131"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="73i-Zb-WPB"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

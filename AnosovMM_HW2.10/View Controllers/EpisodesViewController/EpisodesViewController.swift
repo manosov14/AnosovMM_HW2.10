@@ -11,28 +11,32 @@ import Alamofire
 
 class EpisodesViewController: UITableViewController {
     // MARK: - Properties
-    private var episodes: Welcome?
+    private var results: [Result] = []
     
     // MARK: - Life cycle
     override func viewDidLoad() {
-        fetchAllEpisodes(for: URLS.rickAndMortyApi.rawValue)
         super.viewDidLoad()
-        self.tableView.reloadData()
+        
+        fetchAllEpisodes(for: URLS.rickAndMortyApi.rawValue)
+
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        episodes?.results.count ?? 0
+        results.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
         
+        var content = cell.defaultContentConfiguration()
+        let result = results[indexPath.row]
+        content.text = result.name
+        cell.contentConfiguration = content
+        
         return cell
     }
-    
-    
 }
 
 extension EpisodesViewController {
@@ -40,38 +44,12 @@ extension EpisodesViewController {
     //MARK: - Network
     
     func fetchAllEpisodes(for url: String) {
-        
-        AF.request(url, method: .get)
-            .validate()
-            .responseJSON { dataResponse in
-                switch dataResponse.result  {
-
-                case .success(let value):
-                    guard let episodes = value as? [[String: Any]] else { return }
-                    for episode in episodes {
-                        let episode = Result(
-                            id: episodes["id"] as? Int ?? 0,
-                            name: episodes["name"] as? String ?? "",
-                            status: <#T##String?#>,
-                            species: <#T##String?#>,
-                            type: <#T##String?#>,
-                            gender: <#T##String?#>,
-                            origin: <#T##Location#>,
-                            location: <#T##Location#>,
-                            image: <#T##String#>,
-                            air_date: <#T##String?#>,
-                            episode: <#T##[String]#>,
-                            characters: <#T##[String]?#>,
-                            url: <#T##String#>,
-                            created: <#T##String#>)
-                        print(value)
-
-                        case .failure(let error):
-                        print(error)
-                    }
-                case .failure(_):
-                    <#code#>
-                }
-
-            }
+        NetworkManager.shared.fetchAllEpisodes() {
+            episodes in
+            self.results = episodes
+            print(self.results)
+            self.tableView.reloadData()
+        }
     }
+}
+
